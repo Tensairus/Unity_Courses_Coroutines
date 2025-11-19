@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 349817977}
   - component: {fileID: 349817976}
   - component: {fileID: 349817979}
+  - component: {fileID: 349817978}
   m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
@@ -286,8 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a596e5cecaafbac46a8ca254759e14b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Counter
-  _counterIncrement: 1
-  _incrementTimeWaitSec: 0.5
 --- !u!4 &349817977
 Transform:
   m_ObjectHideFlags: 0
@@ -303,6 +302,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349817978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349817975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253091508d8428842bd12b548cb1af24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CounterView
+  _text: {fileID: 418560893}
+  _counter: {fileID: 349817976}
+  _animator: {fileID: 418560895}
+  _textResizeAnimation: {fileID: 7400000, guid: 890059f28dd3d0442a5d65179b132fe3, type: 2}
 --- !u!114 &349817979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,9 +327,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 349817975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cba91a29ef0a9d468fc9349bd353810, type: 3}
+  m_Script: {fileID: 11500000, guid: c3e73e1399a51d942b4c159004900922, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InputListener
+  m_EditorClassIdentifier: Assembly-CSharp::CounterController
+  _counter: {fileID: 349817976}
+  _counterIncrement: 1
+  _incrementTimeWaitSec: 0.5
+  _isActive: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +760,6 @@ GameObject:
   - component: {fileID: 2127041216}
   - component: {fileID: 2127041215}
   - component: {fileID: 2127041214}
-  - component: {fileID: 2127041218}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -832,22 +850,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2127041218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127041213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253091508d8428842bd12b548cb1af24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CounterView
-  _text: {fileID: 418560893}
-  _counter: {fileID: 349817976}
-  _animator: {fileID: 418560895}
-  _textResizeAnimation: {fileID: 7400000, guid: 890059f28dd3d0442a5d65179b132fe3, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
