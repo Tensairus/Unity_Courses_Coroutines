@@ -8,12 +8,6 @@ public class CounterView : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private AnimationClip _textResizeAnimation;
 
-    private void OnValueChanged(int value)
-    {
-        _text.text = value.ToString();
-        _animator.Play(_textResizeAnimation.name);
-    }
-
     private void OnEnable()
     {
         _counter.ValueChanged += OnValueChanged;
@@ -22,5 +16,11 @@ public class CounterView : MonoBehaviour
     private void OnDisable()
     {
         _counter.ValueChanged -= OnValueChanged;
+    }
+
+    private void OnValueChanged(int value)
+    {
+        _text.text = value.ToString();
+        _animator.Play(_textResizeAnimation.name);
     }
 }

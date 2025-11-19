@@ -25,6 +25,17 @@ public class Counter : MonoBehaviour
         ValueChanged?.Invoke(_countCurrentValue);
     }
 
+    private void OnEnable()
+    {
+        _inputListener = GetComponent<InputListener>();
+        _inputListener.LeftMouseClicked += HandleCounterCoroutine;
+    }
+
+    private void OnDisable()
+    {
+        _inputListener.LeftMouseClicked -= HandleCounterCoroutine;
+    }
+
     private void HandleCounterCoroutine()
     {
         _isActive = !_isActive;
@@ -50,16 +61,5 @@ public class Counter : MonoBehaviour
             _countCurrentValue += _counterIncrement;
             ValueChanged?.Invoke(_countCurrentValue);
         }
-    }
-
-    private void OnEnable()
-    {
-        _inputListener = GetComponent<InputListener>();
-        _inputListener.LeftMouseClicked += HandleCounterCoroutine;
-    }
-
-    private void OnDisable()
-    {
-        _inputListener.LeftMouseClicked -= HandleCounterCoroutine;
-    }    
+    }  
 }
